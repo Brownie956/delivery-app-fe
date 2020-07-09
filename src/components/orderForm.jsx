@@ -11,10 +11,10 @@ import {
 class OrderForm extends Component {
     state = {
         counters: [
-            {id: 1, value: 0},
-            {id: 2, value: 0},
-            {id: 3, value: 0},
-            {id: 4, value: 0}
+            {id: 1, value: 0, name: "Sausages"},
+            {id: 2, value: 2, name: "Peanuts"},
+            {id: 3, value: 4, name: "Sandwiches"},
+            {id: 4, value: 0, name: "Cornflakes"}
         ],
         deliveryMethods: [],
         selectedDeliveryMethod: "next-day"
@@ -54,7 +54,7 @@ class OrderForm extends Component {
     handleAddItem = () => {
         const lastID = this.state.counters.length > 0 ? this.state.counters[this.state.counters.length - 1].id : 0;
         let state = this.state.counters.slice();
-        state.push({id: lastID + 1, value: 0});
+        state.push({id: lastID + 1, value: 0, name: "New item " + (lastID + 1)});
         this.setState({counters: state});
     };
 

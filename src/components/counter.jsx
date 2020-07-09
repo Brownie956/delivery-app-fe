@@ -11,7 +11,7 @@ class Counter extends Component {
     render() {
         return (
             <React.Fragment>
-                <span id="item-name" className="counter-name border-right">Item {this.props.counter.id}</span>
+                <span id="item-name" className="counter-name border-right">{this.props.counter.name}</span>
                 <span style={this.styles} className={this.getLabelClasses()}>{this.formatCount()}</span>
                 <Button
                     className="btn btn-secondary btn-sm ml-1 mr-2"
