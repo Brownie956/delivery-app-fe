@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Confirmation from "./components/confirmation";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import OrderForm from "./components/orderForm";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = {
+        basket: [],
+        deliveryMethod: null
+    };
+
+    handleSubmit = (basket, deliveryMethod) => {
+        console.log("Basket", basket);
+        console.log("Delivery Method", deliveryMethod);
+        this.setState({basket: basket, deliveryMethod: deliveryMethod});
+    };
+
+    render() {
+        return (
+            <Router>
+                <Switch>
+                    <Route path="/" exact>
+                        <OrderForm
+                            onSubmitState={this.handleSubmit}
+                        />
+                    </Route>
+                    <Route path="/confirmation">
+                        <Confirmation
+                            basket = {this.state.basket}
+                            deliveryMethod = {this.state.deliveryMethod}
+                        />
+                    </Route>
+                </Switch>
+            </Router>
+        );
+    }
 }
 
 export default App;

@@ -1,0 +1,8 @@
+.counter-label {
+    min-width: 10vh;
+}
+
+.counter-name {
+    min-width: 9vh;
+    display: inline-block;
+}
