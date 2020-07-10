@@ -20,6 +20,7 @@ class Counters extends Component {
                         <li key={"li-" + counter.id}>
                             <Counter
                                 key={counter.id}
+                                id={counter.id}
                                 onDelete={onDelete}
                                 onIncrement={onIncrement}
                                 onDecrement={onDecrement}
