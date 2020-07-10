@@ -11,19 +11,22 @@ class Counter extends Component {
     render() {
         return (
             <React.Fragment>
-                <span id="item-name" className="counter-name border-right">{this.props.counter.name}</span>
-                <span style={this.styles} className={this.getLabelClasses()}>{this.formatCount()}</span>
+                <span id={"item-name-" + this.props.id} className="counter-name border-right">{this.props.counter.name}</span>
+                <span id={"count-" + this.props.id} style={this.styles} className={this.getLabelClasses()}>{this.formatCount()}</span>
                 <Button
+                    id={"increment-" + this.props.id}
                     className="btn btn-secondary btn-sm ml-1 mr-2"
                     onClick={() => this.props.onIncrement(this.props.counter)}
                     type='button'
                 >+</Button>
                 <Button
+                    id={"decrement-" + this.props.id}
                     className="btn btn-secondary btn-sm ml-1 mr-1"
                     onClick={() => this.props.onDecrement(this.props.counter)}
                     type='button'
                 >-</Button>
                 <Button
+                    id={"delete-" + this.props.id}
                     className="btn btn-danger btn-sm ml-1"
                     onClick={() => this.props.onDelete(this.props.counter.id)}
                     type='button'
